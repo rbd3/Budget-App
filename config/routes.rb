@@ -13,4 +13,8 @@ Rails.application.routes.draw do
     resources :groups
    end
 
+   resources :groups do
+    resources :operations
+   end
+
 end

@@ -9,9 +9,13 @@ class Ability
     can :read, User
     can :read, Group
     can :read, Operation
-    can :manage, Group, author_id: user.id
-    can :manage, Group, author_id: user.id
-    can :manage, Group if user.is? :admin
-    can :manage, Operation if user.is?
+
+    can :manage, Group, user_id: user.id
+    can :manage, Operation, group: { user_id: user.id }
+
+    if user.admin?
+      can :manage, :all
+    end
+    
   end
 end

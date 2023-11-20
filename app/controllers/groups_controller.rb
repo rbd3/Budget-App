@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-    load_and_authorize_resource
+    load_and_authorize_resource through: :user
   
     def index
         @groups = current_user.groups.includes(:operations)
