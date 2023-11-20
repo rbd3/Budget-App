@@ -1,6 +1,6 @@
-class CreateGrougs < ActiveRecord::Migration[7.1]
+class CreateGroups < ActiveRecord::Migration[7.1]
   def change
-    create_table :grougs do |t|
+    create_table :groups do |t|
       t.string :name
       t.string :icon
 
