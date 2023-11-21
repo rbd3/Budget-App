@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
@@ -13,9 +11,8 @@ class Ability
     can :manage, Group, user_id: user.id
     can :manage, Operation, group: { user_id: user.id }
 
-    if user.admin?
-      can :manage, :all
-    end
-    
+    return unless user.admin?
+
+    can :manage, :all
   end
 end
