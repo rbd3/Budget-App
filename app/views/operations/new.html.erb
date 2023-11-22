@@ -1,0 +1,7 @@
+<h1 class="transaction-form">Add a new Transaction</h1>
+<%= form_for :group, url: user_groups_path(@user) do |f| %>
+  Name: <%= f.text_field :name %><br />
+  Amount: <%= f.text_area :icon %><br />
+  Categories: <%= f.select_field :categories %><br />
+  <%= f.submit %>
+<% end %>

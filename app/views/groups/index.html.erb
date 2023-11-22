@@ -1,9 +1,11 @@
-<h1 class="title-cat">CATEGORY</h1>
+<h1 class="title-category">CATEGORY</h1>
 
-<div class="cat-wrapper">
+<div class="category-wrapper">
 <% @groups.each do |group|%>
-<h5 class="group-title"><%= group.name %></h5>
+<h5 class="group-title"><%= link_to group.name, user_group_path(current_user, group) %></h5>
 <p class="group-icon"><%= group.icon %></p>
 <p class="group-totale"><%= group.total_amount %></p>
 <% end %>
 </div>
+
+<button class="add-category">Add a new Category</button>
