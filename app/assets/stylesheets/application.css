@@ -1,34 +1,37 @@
 /** index **/
 
 .splash-container {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .splash-wrapper {
-    text-align: center;
+  text-align: center;
 }
 
 .login {
-    background-color: #3778c2;
-    color: #ffffff;
-    width: 90%;
-    padding: 5%;
-    margin-top: 60%;
-    font-family: 'Proxima Nova Bold';
+  background-color: #3778c2;
+  color: #fff;
+  width: 90%;
+  padding: 5%;
+  margin-top: 60%;
+  font-family: 'Proxima Nova Bold';
 }
 
 .signup {
-    color: #434b54;
-    width: 90%;
-    height: 20%;
-    text-align: center;
+  color: #434b54;
+  width: 90%;
+  height: 20%;
+  text-align: center;
 }
 
 /** DEVISE **/
+
 /** Registration **/
-.field {
-    color: #434b54;
+.place-field {
+  color: #434b54;
+  width: 95%;
+  height: 5vh;
 }
