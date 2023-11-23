@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_23_071205) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_23_085147) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,7 +19,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_23_071205) do
     t.bigint "Operation_id", null: false
     t.bigint "group_id"
     t.bigint "operation_id"
+    t.index ["group_id", "operation_id"], name: "index_Groups_Operations_on_group_id_and_operation_id"
     t.index ["group_id"], name: "index_Groups_Operations_on_group_id"
+    t.index ["operation_id", "group_id"], name: "index_Groups_Operations_on_operation_id_and_group_id"
     t.index ["operation_id"], name: "index_Groups_Operations_on_operation_id"
   end
 
@@ -60,6 +62,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_23_071205) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "Groups_Operations", "groups"
+  add_foreign_key "Groups_Operations", "operations"
   add_foreign_key "groups", "users"
   add_foreign_key "operations", "users"
 end

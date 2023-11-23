@@ -1,13 +1,21 @@
-<h1 class="title-category">CATEGORY</h1>
+<nav>
+    <div class='burger_menu'>
+      <%= link_to groups_path, class: 'back_btn' do %>
+        <img src="https://img.icons8.com/material-outlined/24/ffffff/back--v1.png" alt="back"/>
+      <% end %>
+    </div>
+    <p>CATEGORIES</p>
+        <%= button_to "SIGN OUT", destroy_user_session_path, method: :delete, class: 'signout' %>
+  </nav>
 
 <div class="category-wrapper">
 <% @groups.each do |group|%>
-<h5 class="group-title"><%= link_to group.name, user_group_path(current_user, group) %></h5>
+<h5 class="group-title"><%= link_to group.name, group_operations_path(group) %></h5>
 <p class="group-icon"><%= group.icon %></p>
 <p class="group-totale"><%= group.total_amount %></p>
 <% end %>
 </div>
 
-<a href='<%=new_group_path(current_user, @group)%>'>
-<button class="add-category">Add a new Category</button>
-</a>
+<footer id = 'new_category'>
+<%=link_to 'ADD NEW CATEGORY', new_group_path, class: 'new_category_btn' %>
+</footer>
