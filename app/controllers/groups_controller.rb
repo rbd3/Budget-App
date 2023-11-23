@@ -1,9 +1,7 @@
 class GroupsController < ApplicationController
-  #load_and_authorize_resource through: :user
 
   def index
     authorize! :index, Group
-    #@user = current_user
     @groups = Group.order('created_at DESC')
   end
 

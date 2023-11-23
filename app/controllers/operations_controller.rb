@@ -1,8 +1,15 @@
 class OperationsController < ApplicationController
-  load_and_authorize_resource through: :group
+
+  def index
+    @group = Group.find(params[:group_id])
+    @operations = @group.operations.order(created_at: :desc)
+    @total = @operations.sum(:amount)
+    @user = current_user
+  end
 
   def new
-    @group = Group.includes(:operations).find(params[:group_id])
+    @user = current_user
+    @group = @user.groups.find(params[:group_id])
     @operation = @group.operations.new
   end
 
