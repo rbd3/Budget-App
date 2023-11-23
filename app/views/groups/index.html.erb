@@ -9,12 +9,21 @@
   </nav>
 
 <div class="category-wrapper">
-<% @groups.each do |group|%>
-<h5 class="group-title"><%= link_to group.name, group_operations_path(group) %></h5>
-<p class="group-icon"><%= group.icon %></p>
-<p class="group-totale"><%= group.total_amount %></p>
-<% end %>
+  <% @groups.each do |group| %>
+    <%= link_to group_operations_path(group), class: 'group-item' do %>
+      <p class="group-icon">
+        <% if group.icon =~ /\.(png|jpg|jpeg|gif)$/ %>
+          <%= image_tag(group.icon) %>
+        <% else %>
+          <%= group.icon %>
+        <% end %>
+      </p>
+      <p class="group-name"><%= group.name %></p>
+      <p class="group-amount"><%= group.total_amount %></p>
+    <% end %>
+  <% end %>
 </div>
+
 
 <footer id = 'new_category'>
 <%=link_to 'ADD NEW CATEGORY', new_group_path, class: 'new_category_btn' %>
