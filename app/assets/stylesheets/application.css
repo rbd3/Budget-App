@@ -1,5 +1,4 @@
 /** index **/
-
 .splash-container {
   height: 100vh;
   display: flex;
@@ -9,23 +8,29 @@
 
 .splash-wrapper {
   text-align: center;
+  display: flex;
+  flex-direction: column; /* Arrange child elements in a column */
+  align-items: center;
+}
+
+.login,
+.signup {
+  width: 95%;
+  padding: 5%;
+  font-family: 'Proxima Nova Bold';
+  text-decoration: none;
 }
 
 .login {
   background-color: #3778c2;
   color: #fff;
-  width: 90%;
-  padding: 5%;
-  margin-top: 60%;
-  font-family: 'Proxima Nova Bold';
+  margin-top: 80%;
 }
 
 .signup {
   color: #434b54;
-  width: 90%;
-  height: 20%;
-  text-align: center;
 }
+
 
 /** DEVISE **/
 

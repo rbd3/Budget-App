@@ -1,5 +1,5 @@
 <h1 class="transaction-form">Add a new Category</h1>
-<%= form_for :group, url: user_groups_path(@user) do |f| %>
+<%= form_with(model: @group, url: groups_path, local: true, data: { turbo: false }) do |f| %>
   Category name: <%= f.text_field :name %><br />
   Category icon: <%= f.text_area :icon %><br />
   <%= f.submit %>
