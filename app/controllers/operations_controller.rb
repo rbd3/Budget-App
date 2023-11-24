@@ -1,11 +1,5 @@
 class OperationsController < ApplicationController
-  # def index
-  # @group = Group.find(params[:group_id])
-  # @operations = @group.operations.order(created_at: :desc)
-  # @total = @operations.sum(:amount)
-  # @user = current_user
-  # end
-
+  
   def index
     @user = current_user
     @groups = @user.groups
