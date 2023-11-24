@@ -1,10 +1,28 @@
 class OperationsController < ApplicationController
 
+  #def index
+   # @group = Group.find(params[:group_id])
+    #@operations = @group.operations.order(created_at: :desc)
+    #@total = @operations.sum(:amount)
+    #@user = current_user
+  #end
+
   def index
-    @group = Group.find(params[:group_id])
-    @operations = @group.operations.order(created_at: :desc)
-    @total = @operations.sum(:amount)
     @user = current_user
+    @groups = @user.groups
+    @transactions_by_group = {}
+
+    # Group transactions by their associated group
+    @groups.each do |group|
+      @transactions_by_group[group] = group.operations.order(created_at: :desc)
+    end
+
+    @total_by_group = {}
+    
+    # Calculate total amount for each group
+    @transactions_by_group.each do |group, transactions|
+      @total_by_group[group] = transactions.sum(:amount)
+    end
   end
 
   def show

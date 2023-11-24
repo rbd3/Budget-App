@@ -9,21 +9,32 @@
   </nav>
 
 <div class="transaction-container">
-<div class="transaction-header">
+  <div class="transaction-header">
 
-<div class="transaction-wrapper">
-
-<% @operations.each do |operation|%>
-<h5 class="transaction-title"><%= operation.name %></h5>
-
-<p class="transaction-amount"><%= operation.amount %></p>
-
-<% end %>
+    <div class="transaction-wrapper">
+  <% @transactions_by_group.each do |group, transactions| %>
+    <div class="group-container">
+      <div class="group-info">
+        <h3><%= group.name %></h3>
+        <p class="total-haut"><%= @total_by_group[group] %></p>
+      </div>
+      
+      <div class="transactions-list">
+        <% if transactions.present? %>
+          <% transactions.each do |transaction| %>
+            <div class="transaction-item">
+              <h5 class="transaction-title"><%= transaction.name %></h5>
+              <p class="transaction-amount"><%= transaction.amount %></p>
+            </div>
+          <% end %>
+        <% else %>
+          <p>No transactions found for the <%= group.name %> Group.</p>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>
-
-</div>
-
 
 <footer id = 'new_category'>
-<%=link_to 'ADD NEW TRANSACTION', new_group_operation_path(@group), class: 'new_category_btn' %>
+<%=link_to 'ADD NEW TRANSACTION', new_group_operation_path, class: 'new_category_btn' %>
 </footer>

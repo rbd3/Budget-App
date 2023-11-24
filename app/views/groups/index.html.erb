@@ -11,6 +11,8 @@
 <div class="category-wrapper">
   <% @groups.each do |group| %>
     <%= link_to group_operations_path(group), class: 'group-item' do %>
+
+    <div class="category-update">
       <p class="group-icon">
         <% if group.icon =~ /\.(png|jpg|jpeg|gif)$/ %>
           <%= image_tag(group.icon) %>
@@ -20,6 +22,7 @@
       </p>
       <p class="group-name"><%= group.name %></p>
       <p class="group-amount"><%= group.total_amount %></p>
+      </div>
     <% end %>
   <% end %>
 </div>
