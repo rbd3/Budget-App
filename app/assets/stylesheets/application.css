@@ -37,7 +37,6 @@ body {
   color: #434b54;
 }
 
-
 /** DEVISE **/
 
 /** Registration **/
@@ -54,10 +53,9 @@ body {
 .session-link {
   margin-top: 10%;
   margin-left: 20%;
-
 }
 
-/** GROUP**/
+/** GROUP **/
 .new-group {
   color: #434b54;
   width: 85%;
@@ -114,9 +112,6 @@ nav > * {
   font-size: 0.8rem;
 }
 
-
-
-
 /** FOOTER **/
 footer {
   position: relative;
@@ -165,8 +160,8 @@ footer {
 }
 
 .group-item {
-font-size: 1rem;
-text-decoration: none;
+  font-size: 1rem;
+  text-decoration: none;
 }
 
 .group-icon2 {
@@ -194,7 +189,6 @@ text-decoration: none;
   color: #434b54;
   width: 85%;
   padding: 5%;
-  
 }
 
 /** TRANSACTION **/
@@ -220,12 +214,10 @@ text-decoration: none;
 .transactions-list {
   display: flex;
   flex-direction: column;
-  
 }
 
 .transaction-item {
-display: flex;
-
+  display: flex;
 }
 
 .transaction-amount {
