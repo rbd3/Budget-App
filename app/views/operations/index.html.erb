@@ -12,9 +12,10 @@
 <div class="transaction-header">
 
 <div class="transaction-wrapper">
+
 <% @operations.each do |operation|%>
 <h5 class="transaction-title"><%= operation.name %></h5>
-<p class="transaction-totale"><%= operation.total_amount %></p>
+
 <p class="transaction-amount"><%= operation.amount %></p>
 
 <% end %>
