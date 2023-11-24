@@ -15,7 +15,7 @@ body {
 .splash-wrapper {
   text-align: center;
   display: flex;
-  flex-direction: column; /* Arrange child elements in a column */
+  flex-direction: column;
   align-items: center;
 }
 
@@ -23,7 +23,7 @@ body {
 .signup {
   width: 95%;
   padding: 5%;
-  font-family: 'Proxima Nova Bold';
+  font-family: 'Montserrat', sans-serif;
   text-decoration: none;
 }
 
@@ -45,23 +45,28 @@ body {
   color: #434b54;
   width: 95%;
   height: 5vh;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /** GROUP**/
 .new-group {
   color: #434b54;
-  width: 95%;
+  width: 85%;
   height: 5vh;
   padding: 2%;
   font-size: 1rem;
 }
 
-.actions {
-  width: 40%;
-  font-size: 2rem;
-  background-color: transparent;
-  margin-top: 5%;
-  margin-left: 30%;
+.actions-btn {
+  width: 60%;
+  height: 8vh;
+  font-size: 1rem;
+  margin-top: 19%;
+  margin-left: 20%;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #5fb523;
 }
 
 /** MENU **/
@@ -141,4 +146,14 @@ font-size: 1rem;
 .group-amount {
   margin-left: 80%;
   margin-top: -10%;
+}
+
+.transaction-field,
+.group-choise {
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  color: #434b54;
+  width: 85%;
+  padding: 5%;
+  
 }

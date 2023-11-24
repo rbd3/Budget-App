@@ -8,21 +8,21 @@
         <%= button_to "SIGN OUT", destroy_user_session_path, method: :delete, class: 'signout' %>
   </nav>
 
-<%= form_for :group, url: groups_path do |f| %>
-<div class="field">
-  <%= f.text_field :name, placeholder: "Transaction Name", class: "transaction-field" %><br />
+<%= form_for :operation, url: group_operations_path(@group) do |f| %>
+  <div class="field">
+    <%= f.text_field :name, placeholder: "Transaction Name", class: "transaction-field" %><br />
   </div>
 
   <div class="field">
-  <%= f.text_area :Amount, placeholder: "Transaction Amount", class: "transaction-field" %><br />
+    <%= f.text_area :amount, placeholder: "Transaction Amount", class: "transaction-field" %><br />
   </div>
 
   <div class="field">
-        <%= f.label :group_id, class: "input-group-text" %><br />
-        <%= f.collection_select(:group_id, current_user.groups, :id, :name, { prompt: 'Select Category' }, class: 'form-select') %>
-      </div>
-      
+    <%= f.label :group_id, class: "group-choise" %><br />
+    
+  </div>
+
   <div class="actions">
-        <%= f.submit "CREATE TRANSACTION"%>
-      </div>
+    <%= f.submit "SAVE TRANSACTION", class: "actions-btn"%>
+  </div>
 <% end %>

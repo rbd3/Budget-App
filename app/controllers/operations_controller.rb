@@ -19,7 +19,7 @@ class OperationsController < ApplicationController
     @operation.user = current_user
 
     if @operation.save
-      redirect_to user_group_path(current_user, @group), notice: 'Operation successfully created'
+      redirect_to group_path(@group), notice: 'Operation successfully created'
     else
       render :new
     end
