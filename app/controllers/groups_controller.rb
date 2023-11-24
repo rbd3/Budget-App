@@ -1,8 +1,7 @@
 class GroupsController < ApplicationController
-  load_and_authorize_resource through: :user
-
   def index
-    @groups = current_user.groups.includes(:operations)
+    authorize! :index, Group
+    @groups = Group.order('created_at DESC')
   end
 
   def show
@@ -11,18 +10,16 @@ class GroupsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @group = Group.new
   end
 
   def create
     @group = current_user.groups.new(group_params)
 
     if @group.save
-      redirect_to user_groups_path(current_user)
-
+      redirect_to groups_path, notice: 'Category was successfully created.'
     else
-      flash[:alert] = 'Something went wrong'
-      render 'new'
+      render 'new', status: 422
     end
   end
 
@@ -32,12 +29,11 @@ class GroupsController < ApplicationController
 
     group.operations.destroy_all
     if group.destroy
-      flash[:success] = 'Post deleted successfully'
-      redirect_to user_groups_path(current_user)
+      flash[:success] = 'Category deleted successfully'
     else
-      flash.now[:error] = 'Error: Post could not be deleted'
-      redirect_to user_group_path(current_user, @group)
+      flash.now[:error] = 'Error: Category could not be deleted'
     end
+    redirect_to groups_path
   end
 
   private

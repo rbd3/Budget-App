@@ -1,0 +1,33 @@
+<nav>
+    <div class='burger_menu'>
+      <%= link_to groups_path, class: 'back_btn' do %>
+        <img src="https://img.icons8.com/material-outlined/24/ffffff/back--v1.png" alt="back"/>
+      <% end %>
+    </div>
+    <p>CATEGORIES</p>
+        <%= button_to "SIGN OUT", destroy_user_session_path, method: :delete, class: 'signout' %>
+  </nav>
+
+<div class="category-wrapper">
+  <% @groups.each do |group| %>
+    <%= link_to group_operations_path(group), class: 'group-item' do %>
+
+    <div class="category-update">
+      <p class="group-icon">
+        <% if group.icon =~ /\.(png|jpg|jpeg|gif)$/ %>
+          <%= image_tag group.icon, class: "group-icon2" %>
+        <% else %>
+          <%= group.icon %>
+        <% end %>
+      </p>
+      <p class="group-name"><%= group.name %></p>
+      <p class="group-amount">$<%= group.total_amount %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+
+<footer id = 'new_category'>
+<%=link_to 'ADD NEW CATEGORY', new_group_path, class: 'new_category_btn' %>
+</footer>

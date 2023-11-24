@@ -1,0 +1,14 @@
+<div class="splash-container">
+<div class="splash-wrapper">
+<h1 class="title">BUDGET APP</h1>
+
+<%= link_to "LOG IN", new_user_session_path, class: "login" %>
+<%= link_to "SIGN UP", new_user_registration_path, class: "signup" %>
+</div>
+</div>
+
+<% if user_signed_in? %>
+  <%= link_to 'Sign out', destroy_user_session_path, data: { turbo_method: :delete } %>
+<% else %>
+  <%= link_to 'Sign in', new_user_session_path %>
+<% end %> 

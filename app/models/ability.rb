@@ -8,11 +8,10 @@ class Ability
     can :read, Group
     can :read, Operation
 
-    can :manage, Group, user_id: user.id
-    can :manage, Operation, group: { user_id: user.id }
+    return unless user.present?
 
-    return unless user.admin?
-
-    can :manage, :all
+    can :manage, Group do |group|
+      group.user == user
+    end
   end
 end

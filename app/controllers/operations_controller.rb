@@ -1,18 +1,52 @@
 class OperationsController < ApplicationController
-  load_and_authorize_resource through: :group
+  # def index
+  # @group = Group.find(params[:group_id])
+  # @operations = @group.operations.order(created_at: :desc)
+  # @total = @operations.sum(:amount)
+  # @user = current_user
+  # end
+
+  def index
+    @user = current_user
+    @groups = @user.groups
+    @transactions_by_group = {}
+
+    # Group transactions by their associated group
+    @groups.each do |group|
+      @transactions_by_group[group] = group.operations.order(created_at: :desc)
+    end
+
+    @total_by_group = {}
+
+    # Calculate total amount for each group
+    @transactions_by_group.each do |group, transactions|
+      @total_by_group[group] = transactions.sum(:amount)
+    end
+  end
+
+  def show
+    @group = Group.find(params[:group_id])
+    @operations = @group.operations
+    @operation = @operations.find(params[:id])
+  end
 
   def new
-    @group = Group.includes(:operations).find(params[:group_id])
+    @user = current_user
+    @group = @user.groups.find(params[:group_id])
     @operation = @group.operations.new
   end
 
   def create
-    @group = Group.includes(:operations).find(params[:group_id])
-    @operation = @group.operations.new(operation_params)
-    @operation.user = current_user
+    @group = Group.find(params[:group_id])
+
+    @operation = @group.operations.create(name: operation_params[:name], amount: operation_params[:amount],
+                                          user_id: current_user.id, group_id: @group.id)
 
     if @operation.save
-      redirect_to user_group_path(current_user, @group), notice: 'Operation successfully created'
+      # Handle the selected group IDs
+      @operation.group_ids = params[:operation][:group_ids]
+
+      redirect_to group_operations_path(@group), notice: 'Operation successfully created'
     else
       render :new
     end

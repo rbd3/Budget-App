@@ -1,0 +1,28 @@
+<nav>
+    <div class='burger_menu'>
+      <%= link_to groups_path, class: 'back_btn' do %>
+        <img src="https://img.icons8.com/material-outlined/24/ffffff/back--v1.png" alt="back"/>
+      <% end %>
+    </div>
+    <p>TRANSACTION</p>
+        <%= button_to "SIGN OUT", destroy_user_session_path, method: :delete, class: 'signout' %>
+  </nav>
+
+<%= form_for :operation, url: group_operations_path(@group) do |f| %>
+  <div class="field">
+    <%= f.text_field :name, placeholder: "Transaction Name", class: "transaction-field" %><br />
+  </div>
+
+  <div class="field">
+    <%= f.text_area :amount, placeholder: "Transaction Amount", class: "transaction-field" %><br />
+  </div>
+
+  <div class="field">
+    <%= f.label :group_ids, "Select Groups", class: "group-choise" %><br />
+    <%= f.collection_check_boxes :group_ids, current_user.groups, :id, :name, class: "form-check-input" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "SAVE TRANSACTION", class: "actions-btn"%>
+  </div>
+<% end %>
