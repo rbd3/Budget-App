@@ -15,13 +15,13 @@
     <div class="category-update">
       <p class="group-icon">
         <% if group.icon =~ /\.(png|jpg|jpeg|gif)$/ %>
-          <%= image_tag(group.icon) %>
+          <%= image_tag group.icon, class: "group-icon2" %>
         <% else %>
           <%= group.icon %>
         <% end %>
       </p>
       <p class="group-name"><%= group.name %></p>
-      <p class="group-amount"><%= group.total_amount %></p>
+      <p class="group-amount">$<%= group.total_amount %></p>
       </div>
     <% end %>
   <% end %>
