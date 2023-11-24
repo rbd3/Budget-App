@@ -1,6 +1,12 @@
-<div class="login-wrapper">
-<h2>LOGIN</h2>
-</div>
+<nav>
+    <div class='burger_menu'>
+      <%= link_to groups_path, class: 'back_btn' do %>
+        <img src="https://img.icons8.com/material-outlined/24/ffffff/back--v1.png" alt="back"/>
+      <% end %>
+    </div>
+    <p>LOGIN</p>
+        <%= link_to "SIGN UP", new_registration_path(resource_name), class: 'signout-up' %>
+  </nav>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -12,9 +18,10 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "LOG IN", class: 'actions-btn'%>
   </div>
 
 <% end %>
-
+<div class="session-link">
 <%= render "devise/shared/links" %>
+</div>

@@ -42,11 +42,19 @@ body {
 
 /** Registration **/
 .place-field {
+  margin-left: 5%;
   color: #434b54;
-  width: 95%;
-  height: 5vh;
+  width: 80%;
   font-size: 1rem;
   font-family: 'Montserrat', sans-serif;
+  padding: 5%;
+}
+
+/** session **/
+.session-link {
+  margin-top: 10%;
+  margin-left: 20%;
+
 }
 
 /** GROUP**/
@@ -101,6 +109,13 @@ nav > * {
   color: white;
   font-size: 0.8rem;
 }
+
+.signout-up {
+  font-size: 0.8rem;
+}
+
+
+
 
 /** FOOTER **/
 footer {
