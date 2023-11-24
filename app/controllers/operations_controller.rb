@@ -1,11 +1,10 @@
 class OperationsController < ApplicationController
-
-  #def index
-   # @group = Group.find(params[:group_id])
-    #@operations = @group.operations.order(created_at: :desc)
-    #@total = @operations.sum(:amount)
-    #@user = current_user
-  #end
+  # def index
+  # @group = Group.find(params[:group_id])
+  # @operations = @group.operations.order(created_at: :desc)
+  # @total = @operations.sum(:amount)
+  # @user = current_user
+  # end
 
   def index
     @user = current_user
@@ -18,7 +17,7 @@ class OperationsController < ApplicationController
     end
 
     @total_by_group = {}
-    
+
     # Calculate total amount for each group
     @transactions_by_group.each do |group, transactions|
       @total_by_group[group] = transactions.sum(:amount)
@@ -30,31 +29,29 @@ class OperationsController < ApplicationController
     @operations = @group.operations
     @operation = @operations.find(params[:id])
   end
-  
 
   def new
     @user = current_user
     @group = @user.groups.find(params[:group_id])
     @operation = @group.operations.new
   end
+
   def create
     @group = Group.find(params[:group_id])
 
     @operation = @group.operations.create(name: operation_params[:name], amount: operation_params[:amount],
-                                      user_id: current_user.id, group_id: @group.id)
-    
-  
+                                          user_id: current_user.id, group_id: @group.id)
+
     if @operation.save
       # Handle the selected group IDs
       @operation.group_ids = params[:operation][:group_ids]
-  
+
       redirect_to group_operations_path(@group), notice: 'Operation successfully created'
     else
       render :new
     end
   end
-  
-  
+
   def destroy
     @operation = Operation.find(params[:id])
     @group = @operation.group

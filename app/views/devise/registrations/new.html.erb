@@ -3,7 +3,7 @@
 <img class='back_btn'src="https://img.icons8.com/ios/50/ffffff/back--v1.png" alt="back--v1"/>
 <%end%>
 <p>REGISTER</p>
-  <%= link_to "LOG IN", new_session_path(resource_name) %><br />
+  <%= link_to "LOG IN", new_session_path(resource_name), class: 'signout-up' %><br />
 </nav>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>

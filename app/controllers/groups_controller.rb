@@ -1,5 +1,4 @@
 class GroupsController < ApplicationController
-
   def index
     authorize! :index, Group
     @groups = Group.order('created_at DESC')
@@ -16,14 +15,14 @@ class GroupsController < ApplicationController
 
   def create
     @group = current_user.groups.new(group_params)
-  
+
     if @group.save
       redirect_to groups_path, notice: 'Category was successfully created.'
     else
       render 'new', status: 422
     end
   end
-    
+
   def destroy
     group = Group.find(params[:id])
     authorize! :destroy, group
@@ -31,11 +30,10 @@ class GroupsController < ApplicationController
     group.operations.destroy_all
     if group.destroy
       flash[:success] = 'Category deleted successfully'
-      redirect_to groups_path
     else
       flash.now[:error] = 'Error: Category could not be deleted'
-      redirect_to groups_path
     end
+    redirect_to groups_path
   end
 
   private

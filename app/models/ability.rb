@@ -13,6 +13,5 @@ class Ability
     can :manage, Group do |group|
       group.user == user
     end
-
   end
 end
