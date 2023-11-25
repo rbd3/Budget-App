@@ -18,8 +18,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :group_ids, "Select Groups", class: "group-choise" %><br />
-    <%= f.collection_check_boxes :group_ids, current_user.groups, :id, :name, class: "form-check-input" %>
+    <%= f.label :group_ids, "Select Category", class: "group-choise" %><br />
+    <%= f.collection_check_boxes :group_ids, Group.all, :id, :name, class: "form-check-input" %>
   </div>
 
   <div class="actions">
