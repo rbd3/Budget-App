@@ -1,0 +1,20 @@
+<div class="new-container">
+<nav>
+    <div class='burger_menu'>
+      <%= link_to groups_path, class: 'back_btn' do %>
+        <img src="https://img.icons8.com/material-outlined/24/ffffff/back--v1.png" alt="back"/>
+      <% end %>
+    </div>
+    <p>CATEGORY</p>
+        <%= button_to "SIGN OUT", destroy_user_session_path, method: :delete, class: 'signout' %>
+  </nav>
+  
+  <%= form_with(model: @group, url: groups_path, local: true, data: { turbo: false }) do |f| %>
+  <%= f.text_field :name, placeholder: "Category Name", class: "new-group" %><br />
+  <%= f.text_area :icon, placeholder: "Category Icon", class: "new-group" %><br />
+  <div class="actions">
+  <%= f.submit 'SAVE CATEGORY', class: "actions-btn" %>
+  </div>
+<% end %>
+
+</div>

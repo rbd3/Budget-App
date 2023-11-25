@@ -1,15 +1,225 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: #434b54;
+  margin: 0;
+}
+
+/** index **/
+.splash-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.splash-wrapper {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login,
+.signup {
+  width: 95%;
+  padding: 5%;
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+}
+
+.login {
+  background-color: #3778c2;
+  color: #fff;
+  margin-top: 80%;
+}
+
+.signup {
+  color: #434b54;
+}
+
+/** DEVISE **/
+
+/** Registration **/
+.place-field {
+  margin-left: 5%;
+  color: #434b54;
+  width: 80%;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  padding: 5%;
+}
+
+/** session **/
+.session-link {
+  margin-top: 10%;
+  margin-left: 20%;
+}
+
+/** GROUP **/
+.new-group {
+  color: #434b54;
+  width: 85%;
+  height: 5vh;
+  padding: 2%;
+  font-size: 1rem;
+}
+
+.actions-btn {
+  width: 60%;
+  height: 8vh;
+  font-size: 1rem;
+  margin-top: 19%;
+  margin-left: 20%;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #5fb523;
+}
+
+/** MENU **/
+nav {
+  width: 100%;
+  background-color: #3778c2;
+  color: white;
+  height: 3rem;
+  display: flex;
+  justify-content: space-around;
+  align-self: center;
+  margin-bottom: 10%;
+}
+
+nav > * {
+  margin: 0;
+  padding: 1rem;
+  color: white;
+  text-decoration: none;
+  width: 100vw;
+  text-align: center;
+}
+
+.back_btn {
+  height: 1.5rem;
+}
+
+.signout {
+  width: 6rem;
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 0.8rem;
+}
+
+.signout-up {
+  font-size: 0.8rem;
+}
+
+/** FOOTER **/
+footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #5fb523;
+}
+
+.new_category_btn {
+  border: 1px solid white;
+  border-radius: 4px;
+  width: 60%;
+  padding: 0.6rem;
+  color: white;
+  text-decoration: none;
+}
+
+/** CATEGORY INDEX **/
+.category-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.category-update {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.category-update > :nth-child(1) {
+  width: 25%;
+}
+
+.category-update > :nth-child(2) {
+  width: 60%;
+}
+
+.category-update > :nth-child(3) {
+  width: 20%;
+}
+
+.group-item {
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.group-icon2 {
+  width: 80%;
+  height: auto;
+}
+
+.group-name {
+  flex: 1;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  color: #434b54;
+}
+
+.group-amount {
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  color: #434b54;
+}
+
+.transaction-field,
+.group-choise {
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  color: #434b54;
+  width: 85%;
+  padding: 5%;
+}
+
+/** TRANSACTION **/
+.transaction-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.group-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3%;
+}
+
+.group-info {
+  display: flex;
+}
+
+.total-haut {
+  margin-left: auto;
+}
+
+.transactions-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.transaction-item {
+  display: flex;
+}
+
+.transaction-amount {
+  margin-left: auto;
+}
