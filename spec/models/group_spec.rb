@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Group, type: :model do
-  let(:user) { User.create(name: 'John', email: 'john@example.com', password: 'password123', confirmed_at: Time.now) }
+  let(:user) { User.create(name: 'andry', email: 'andry@example.com', password: 'password123', confirmed_at: Time.now) }
 
   it 'should have an integer user_id' do
     group = Group.new(user_id: user.id, name: 'food', icon: 'icon')

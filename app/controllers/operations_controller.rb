@@ -45,13 +45,6 @@ class OperationsController < ApplicationController
     end
   end
 
-  def destroy
-    @operation = Operation.find(params[:id])
-    @group = @operation.group
-    @operation.destroy
-    redirect_to user_group_path(current_user, @group), notice: 'Operation successfully deleted'
-  end
-
   private
 
   def operation_params

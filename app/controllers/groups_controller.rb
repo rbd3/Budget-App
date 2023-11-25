@@ -23,19 +23,6 @@ class GroupsController < ApplicationController
     end
   end
 
-  def destroy
-    group = Group.find(params[:id])
-    authorize! :destroy, group
-
-    group.operations.destroy_all
-    if group.destroy
-      flash[:success] = 'Category deleted successfully'
-    else
-      flash.now[:error] = 'Error: Category could not be deleted'
-    end
-    redirect_to groups_path
-  end
-
   private
 
   def group_params

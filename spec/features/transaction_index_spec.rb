@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature 'Transaction index page', type: :feature do
   include Devise::Test::IntegrationHelpers
 
-  let(:user) { User.create(name: 'andry', email: 'john@example.com', password: 'password123', confirmed_at: Time.now) }
+  let(:user) { User.create(name: 'andry', email: 'andry@example.com', password: 'password123', confirmed_at: Time.now) }
   let!(:group1) { Group.create(user_id: user.id, name: 'food', icon: 'icon1') }
   let!(:group2) { Group.create(user_id: user.id, name: 'Bla', icon: 'icon2') }
   let!(:transaction1) { Operation.create(name: 'Groceries', amount: 50, user:, groups: [group1]) }

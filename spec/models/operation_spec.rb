@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe Operation, type: :model do
-  let(:user) { User.create(name: 'John', email: 'john@example.com', password: 'password123', confirmed_at: Time.now) }
+  let(:user) { User.create(name: 'andry', email: 'andry@example.com', password: 'password123', confirmed_at: Time.now) }
   let(:group) { Group.create(name: 'Food', user:, icon: 'food_icon.png') }
 
   it 'is valid with valid attributes' do
