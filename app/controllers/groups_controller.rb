@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  before_action :authenticate_user!
   def index
     authorize! :index, Group
     @groups = Group.order('created_at DESC')
