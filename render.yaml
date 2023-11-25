@@ -1,12 +1,12 @@
 databases:
   - name: postgres
+    plan: free
     databaseName: budget_app_production_reuy
     user: budget_app_production_reuy_user
 
 services:
-  - plan: free
   - type: web
-  
+    plan: free
     name: budgetapp
     runtime: ruby
     buildCommand: "./bin/render-build.sh"
