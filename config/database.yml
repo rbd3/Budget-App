@@ -83,9 +83,6 @@ test:
 #
 production:
   <<: *default
-  database: budgetapp_gmeo
-  username: budgetapp_gmeo_user
-  password: <%= ENV["BUDGET_APP_DATABASE_PASSWORD"] %>
   url: <%= ENV['DATABASE_URL'] %>
 
 
