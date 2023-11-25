@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   root to: 'users#index'
    
    resources :users, only: %i[index]
-  resources :groups, only: %i[index new create destroy] do
-    resources :operations, only: %i[index show new create destroy]
+  resources :groups, only: %i[index new create] do
+    resources :operations, only: %i[index show new create]
   end
 
 end
