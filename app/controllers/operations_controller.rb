@@ -1,14 +1,6 @@
 class OperationsController < ApplicationController
-  # def index
-  # @group = Group.find(params[:group_id])
-  # @operations = @group.operations.order(created_at: :desc)
-  # @total = @operations.sum(:amount)
-  # @user = current_user
-  # end
-
   def index
-    @user = current_user
-    @groups = @user.groups
+    @groups = Group.all.order(created_at: :desc)
     @transactions_by_group = {}
 
     # Group transactions by their associated group
@@ -31,8 +23,7 @@ class OperationsController < ApplicationController
   end
 
   def new
-    @user = current_user
-    @group = @user.groups.find(params[:group_id])
+    @group = Group.find(params[:group_id])
     @operation = @group.operations.new
   end
 
@@ -50,13 +41,6 @@ class OperationsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def destroy
-    @operation = Operation.find(params[:id])
-    @group = @operation.group
-    @operation.destroy
-    redirect_to user_group_path(current_user, @group), notice: 'Operation successfully deleted'
   end
 
   private
