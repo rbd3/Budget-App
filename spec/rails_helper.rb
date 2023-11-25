@@ -35,7 +35,7 @@ RSpec.configure do |config|
 
   config.before(:each, type: :feature) do
     # Set the default host for Capybara
-    #Capybara.default_host = ' http://127.0.0.1:3000'
+    # Capybara.default_host = ' http://127.0.0.1:3000'
   end
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
@@ -66,7 +66,6 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
-  
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :view
 end
