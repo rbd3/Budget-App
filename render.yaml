@@ -1,4 +1,3 @@
-# Specify the Render plan for your service
 plan: free
 
 databases:
