@@ -1,12 +1,11 @@
 databases:
   - name: budgetapp
-    plan: free
-    databaseName: budgetapp
+    databaseName: budgetapp_gmeo
+    user: budgetapp_gmeo_user
 
 services:
   - type: web
-    plan: free
-    name: budgetapp
+    name: BudgetUser
     runtime: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
